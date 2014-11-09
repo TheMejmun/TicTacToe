@@ -24,8 +24,6 @@ public class Main extends JFrame {
 		new Main();
 	}
 
-	int Con[] = new int[9];
-
 	JLabel Field1, Field2, Field3, Field4, Field5, Field6, Field7, Field8,
 			Field9;
 	ImageIcon i1 = new ImageIcon(getClass().getResource("cross.png"));
