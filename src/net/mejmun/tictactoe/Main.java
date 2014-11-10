@@ -26,42 +26,45 @@ public class Main extends JFrame {
 
 	JLabel Field1, Field2, Field3, Field4, Field5, Field6, Field7, Field8,
 			Field9;
-	ImageIcon i1 = new ImageIcon(getClass().getResource("cross.png"));
-	ImageIcon i2 = new ImageIcon(getClass().getResource("circle.png"));
-	ImageIcon i3 = new ImageIcon(getClass().getResource("blank.png"));
-	ImageIcon i4 = new ImageIcon(getClass().getResource("crosswon.png"));
-	ImageIcon i5 = new ImageIcon(getClass().getResource("circlewon.png"));
+	
+	ImageIcon imageCross = new ImageIcon(getClass().getResource("cross.png"));
+	ImageIcon imageCircle = new ImageIcon(getClass().getResource("circle.png"));
+	ImageIcon imageCrossWon = new ImageIcon(getClass().getResource("crosswon.png"));
+	ImageIcon imageCircleWon = new ImageIcon(getClass().getResource("circlewon.png"));
+	ImageIcon imageBlank = new ImageIcon(getClass().getResource("blank.png"));
+	
 	JFrame frame = new JFrame();
 
 	volatile boolean turn = true;
 	volatile boolean won = false;
 
-	int b = 14;
+	int border = 14;
 
 	public Main() {
 
-		MouseAdapter MA = new MouseAdapterMod();
+		MouseAdapter mouseAdapter = new MouseAdapterMod();
 
 		frame.setTitle("TicTacToe by Saman Miran");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.BLACK);
+		frame.setSize(646, 692);
 
 		JMenuBar menu = new JMenuBar();
-		JMenu cat = new JMenu("Menu");
+		JMenu category = new JMenu("Menu");
 		JMenuItem restart = new JMenuItem("Restart");
 		restart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Field1.setIcon(i3);
-				Field2.setIcon(i3);
-				Field3.setIcon(i3);
-				Field4.setIcon(i3);
-				Field5.setIcon(i3);
-				Field6.setIcon(i3);
-				Field7.setIcon(i3);
-				Field8.setIcon(i3);
-				Field9.setIcon(i3);
+				Field1.setIcon(imageBlank);
+				Field2.setIcon(imageBlank);
+				Field3.setIcon(imageBlank);
+				Field4.setIcon(imageBlank);
+				Field5.setIcon(imageBlank);
+				Field6.setIcon(imageBlank);
+				Field7.setIcon(imageBlank);
+				Field8.setIcon(imageBlank);
+				Field9.setIcon(imageBlank);
 				won = false;
 
 			}
@@ -74,62 +77,65 @@ public class Main extends JFrame {
 			}
 		});
 
-		cat.add(restart);
-		cat.add(exit);
-		menu.add(cat);
+		category.add(restart);
+		category.add(exit);
+		menu.add(category);
 		frame.setJMenuBar(menu);
 
 		frame.setLayout(new BorderLayout());
 		frame.setContentPane(new JLabel(new ImageIcon(getClass().getResource(
 				"grid.png"))));
 		frame.setLayout(new FlowLayout());
+		
 		// Just for refresh
-		frame.setSize(645, 691);
-		frame.setSize(646, 692);
 
-		Field1 = new JLabel(i3);
-		Field1.setBorder(new EmptyBorder(b, b, b, b));
-		Field1.addMouseListener(MA);
+		frame.invalidate();
+		frame.validate();
+		frame.repaint();
+
+		Field1 = new JLabel(imageBlank);
+		Field1.setBorder(new EmptyBorder(border, border, border, border));
+		Field1.addMouseListener(mouseAdapter);
 		frame.add(Field1);
 
-		Field2 = new JLabel(i3);
-		Field2.setBorder(new EmptyBorder(b, b, b, b));
-		Field2.addMouseListener(MA);
+		Field2 = new JLabel(imageBlank);
+		Field2.setBorder(new EmptyBorder(border, border, border, border));
+		Field2.addMouseListener(mouseAdapter);
 		frame.add(Field2);
 
-		Field3 = new JLabel(i3);
-		Field3.setBorder(new EmptyBorder(b, b, b, b));
-		Field3.addMouseListener(MA);
+		Field3 = new JLabel(imageBlank);
+		Field3.setBorder(new EmptyBorder(border, border, border, border));
+		Field3.addMouseListener(mouseAdapter);
 		frame.add(Field3);
 
-		Field4 = new JLabel(i3);
-		Field4.setBorder(new EmptyBorder(b, b, b, b));
-		Field4.addMouseListener(MA);
+		Field4 = new JLabel(imageBlank);
+		Field4.setBorder(new EmptyBorder(border, border, border, border));
+		Field4.addMouseListener(mouseAdapter);
 		frame.add(Field4);
 
-		Field5 = new JLabel(i3);
-		Field5.setBorder(new EmptyBorder(b, b, b, b));
-		Field5.addMouseListener(MA);
+		Field5 = new JLabel(imageBlank);
+		Field5.setBorder(new EmptyBorder(border, border, border, border));
+		Field5.addMouseListener(mouseAdapter);
 		frame.add(Field5);
 
-		Field6 = new JLabel(i3);
-		Field6.setBorder(new EmptyBorder(b, b, b, b));
-		Field6.addMouseListener(MA);
+		Field6 = new JLabel(imageBlank);
+		Field6.setBorder(new EmptyBorder(border, border, border, border));
+		Field6.addMouseListener(mouseAdapter);
 		frame.add(Field6);
 
-		Field7 = new JLabel(i3);
-		Field7.setBorder(new EmptyBorder(b, b, b, b));
-		Field7.addMouseListener(MA);
+		Field7 = new JLabel(imageBlank);
+		Field7.setBorder(new EmptyBorder(border, border, border, border));
+		Field7.addMouseListener(mouseAdapter);
 		frame.add(Field7);
 
-		Field8 = new JLabel(i3);
-		Field8.setBorder(new EmptyBorder(b, b, b, b));
-		Field8.addMouseListener(MA);
+		Field8 = new JLabel(imageBlank);
+		Field8.setBorder(new EmptyBorder(border, border, border, border));
+		Field8.addMouseListener(mouseAdapter);
 		frame.add(Field8);
 
-		Field9 = new JLabel(i3);
-		Field9.setBorder(new EmptyBorder(b, b, b, b));
-		Field9.addMouseListener(MA);
+		Field9 = new JLabel(imageBlank);
+		Field9.setBorder(new EmptyBorder(border, border, border, border));
+		Field9.addMouseListener(mouseAdapter);
 		frame.add(Field9);
 
 		ImageIcon image = new ImageIcon(getClass().getResource("cross.png"));
@@ -147,101 +153,101 @@ public class Main extends JFrame {
 
 			JLabel clicked = (JLabel) e.getSource();
 
-			if (clicked.getIcon() == i3 && !won) {
+			if (clicked.getIcon() == imageBlank && !won) {
 
 				if (turn) {
-					clicked.setIcon(i1);
+					clicked.setIcon(imageCross);
 				} else {
-					clicked.setIcon(i2);
+					clicked.setIcon(imageCircle);
 				}
 
 				// winning
 
 				if (Field1.getIcon() == Field2.getIcon()
 						&& Field1.getIcon() == Field3.getIcon()
-						&& Field1.getIcon() != i3) {
+						&& Field1.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field4.getIcon() == Field5.getIcon()
 						&& Field4.getIcon() == Field6.getIcon()
-						&& Field4.getIcon() != i3) {
+						&& Field4.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field7.getIcon() == Field8.getIcon()
 						&& Field7.getIcon() == Field9.getIcon()
-						&& Field7.getIcon() != i3) {
+						&& Field7.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field1.getIcon() == Field4.getIcon()
 						&& Field1.getIcon() == Field7.getIcon()
-						&& Field1.getIcon() != i3) {
+						&& Field1.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field2.getIcon() == Field5.getIcon()
 						&& Field2.getIcon() == Field8.getIcon()
-						&& Field2.getIcon() != i3) {
+						&& Field2.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field3.getIcon() == Field6.getIcon()
 						&& Field3.getIcon() == Field9.getIcon()
-						&& Field3.getIcon() != i3) {
+						&& Field3.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field1.getIcon() == Field5.getIcon()
 						&& Field1.getIcon() == Field9.getIcon()
-						&& Field1.getIcon() != i3) {
+						&& Field1.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
 				} else if (Field3.getIcon() == Field5.getIcon()
 						&& Field3.getIcon() == Field7.getIcon()
-						&& Field3.getIcon() != i3) {
+						&& Field3.getIcon() != imageBlank) {
 
 					if (turn) {
-						clicked.setIcon(i4);
+						clicked.setIcon(imageCrossWon);
 					} else {
-						clicked.setIcon(i5);
+						clicked.setIcon(imageCircleWon);
 					}
 					won = true;
 
